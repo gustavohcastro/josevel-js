@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco</title>
+</head>
+<body>
+    <span>Valor</span>
+    <input id="valor" type="text">
+    <button onclick="depositar()" >Depositar</button>
+    <button onclick="sacar()">Sacar</button>
+    <p>Saldo</p>
+    <span id="saldo">0</span>
+
+    <script>
+        function depositar(){
+            var valor = document.getElementById("valor").value
+            var saldo = document.getElementById("saldo").innerHTML
+            saldo = parseFloat(saldo) + parseFloat(valor);
+            document.getElementById("saldo").innerHTML = saldo
+        }
+        function sacar(){
+            var valor = document.getElementById("valor").value
+            var saldo = document.getElementById("saldo").innerHTML
+
+            if ( parseFloat(valor) > parseFloat(saldo)){
+                alert("Valor Insuficiente em conta")
+            }else{
+                saldo = parseFloat(saldo) - parseFloat(valor);
+                document.getElementById("saldo").innerHTML = saldo
+            }  
+                }
+
+    </script>
+
+</body>
+</html>
